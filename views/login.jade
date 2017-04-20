@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1 login
+  
+  form(action='/api/login', method='post')
+    div.form-group
+      input.form-control(placeholder='username', name='username')
+    div.form-group
+      input.form-control(placeholder='password', name='password')
+    div.form-group
+      button.btn.btn-primary sign in

@@ -1,0 +1,11 @@
+doctype html
+html
+    head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/style.css')
+    body
+        block content
+        p this is #{message}
+        ul
+          each item in result.list
+            li #{item.name},#{item.number}

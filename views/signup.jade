@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  div.page-header
+    h1 sign up
+  hr
+  form(action='/api/signup', method='post')
+    div.form-group
+      input.form-control(placeholder='username', name='username')
+    div.form-group
+      input.form-control(placeholder='password', name='password')
+    div.form-group
+      button.btn.btn-primary sign up

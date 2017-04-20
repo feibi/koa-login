@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1= title
+  
+  if user
+    p welcome,Dear #{user.username} .
+      a(href='/logout') 退出登录
+  else 
+    a(href='/login') 请登录
