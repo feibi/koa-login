@@ -3,6 +3,7 @@ import koaRouter from 'koa-router';
 
 //import users from './users';
 import login from './login';
+import file from './file'
 import API from '../api';
 
 module.exports = (app)=>{
@@ -21,6 +22,8 @@ module.exports = (app)=>{
   })
   API(router)
   login(router)
+  file(router)
+  
   router.get('*', async (ctx, next) => {
         ctx.status = 404;
         return ctx.render('error', {});
