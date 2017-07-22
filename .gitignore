@@ -4,3 +4,4 @@ node_modules
 files
 dist
 build
+.DS_Store
