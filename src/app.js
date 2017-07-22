@@ -13,7 +13,7 @@ const compress = require('koa-compress')
 const session = require('koa-generic-session');
 const zlib = require('zlib');
 
-import routes from './routes';
+const routes = require('./routes');
 
 // middlewares
 app.use(convert(bodyparser));
@@ -33,7 +33,9 @@ app.use(compress({
 }))
 app.use(convert(logger()));
 app.use(require('koa-static')(__dirname + '/public'));
-app.use(views(__dirname + '/views', {extension: 'jade'}));
+app.use(views(__dirname + '/views', {
+  extension: 'jade'
+}));
 
 // routes
 routes(app);

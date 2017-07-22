@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-import {db} from '../config/dev.config'
+import {db} from '../../config/dev.config'
 import User from './user'
 let dbConnection = mongoose.connection;
 
