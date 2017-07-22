@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "./node_modules/.bin/nodemon --inspect bin/www",
-    "build:dev": "gulp build;dev && babel src -d build -s",
+    "build:dev": "gulp dev && babel src --watch -d build -s",
     "build": "gulp build && babel src -d dist",
     "koa": "./node_modules/.bin/runkoa bin/www",
     "pm2": "pm2 start bin/run ",

@@ -21,11 +21,9 @@ module.exports = (router) => {
     await Promise.all(srcArr.map(async function(src, index) {
       const filename = src.substring(src.lastIndexOf('/') + 1);
       const file = await fetch(src);
-      console.log(file)
       archive.append(file.body, {
         name: index + '.jpg'
       })
-
     }))
     const zipData = archive.finalize()
 
