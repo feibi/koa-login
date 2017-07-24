@@ -25,10 +25,12 @@ async function fetchFileToZip(srcArr) {
   }
   const filePath = path.join('files', 'test.zip');
   const output = fs.createWriteStream(filePath);
-  const archive = archiver('zip')
-
+  const archive = archiver('zip', {
+    zlib: {
+      level: 2
+    }
+  })
   archive.pipe(output);
-
   await Promise.all(srcArr.map(async function (src, index) {
     const filename = src.substring(src.lastIndexOf('/'));
     const file = await fetch(src);
@@ -37,4 +39,13 @@ async function fetchFileToZip(srcArr) {
     })
   }))
   await archive.finalize();
+
+  await new Promise((resolve, reject) => {
+    output.on('close', function() {
+      resolve()
+    })
+    output.on('error', function() {
+      reject(error)
+    })
+  })
 }
